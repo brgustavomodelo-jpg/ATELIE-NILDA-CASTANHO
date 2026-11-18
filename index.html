@@ -1,0 +1,600 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <!-- Define se a abertura animada deve rodar (1x por sessão, nunca com movimento reduzido). Roda antes da 1ª pintura. -->
+  <script>
+    (function () {
+      var d = document.documentElement;
+      d.classList.add('js');
+      try {
+        var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var seen = sessionStorage.getItem('nc-intro');
+        var skip = /[?&]intro=0/.test(location.search) || location.hash.length > 1;
+        if (!reduce && !seen && !skip) d.classList.add('intro-on');
+      } catch (e) {}
+    })();
+  </script>
+
+  <title>Ateliê Nilda Castanho | Costura Sob Medida em Curitiba</title>
+  <meta name="description" content="Ateliê de costura em Curitiba - PR: costuras sob medida e em geral, vestidos de noiva e infantis, figurinos de ballet, uniformes e sublimação.">
+  <meta name="theme-color" content="#F8F3EC">
+  <meta name="author" content="Ateliê Nilda Castanho">
+  <!-- Depois de publicar o site, descomente e ajuste: <link rel="canonical" href="https://SEU-DOMINIO.com.br/"> -->
+
+  <!-- Open Graph / redes sociais -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Ateliê Nilda Castanho">
+  <meta property="og:title" content="Ateliê Nilda Castanho | Costura Sob Medida em Curitiba">
+  <meta property="og:description" content="Costurando ideias, criando peças únicas. Costuras sob medida e em geral, em Curitiba - PR.">
+  <!-- IMPORTANTE: troque por URL absoluta após publicar, ex.: https://SEU-DOMINIO.com.br/assets/img/og-image.jpg -->
+  <meta property="og:image" content="assets/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Logo do Ateliê Nilda Castanho e fotos de vestidos e tutus feitos no ateliê">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Favicon -->
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+
+  <!-- Fontes: Cormorant Garamond (títulos), Jost (textos), Allura (assinatura manuscrita) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap">
+
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="preload" as="image" href="assets/img/site/hero-noiva.webp" type="image/webp" fetchpriority="high">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Ateliê Nilda Castanho",
+    "description": "Ateliê de costura em Curitiba - PR: costuras sob medida e em geral.",
+    "image": "assets/img/brand/logo.png",
+    "address": { "@type": "PostalAddress", "addressLocality": "Curitiba", "addressRegion": "PR", "addressCountry": "BR" },
+    "sameAs": ["https://www.instagram.com/atelienildacastanho/"]
+  }
+  </script>
+</head>
+
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <!-- ===================== ABERTURA ANIMADA: A COSTURA REVELANDO A MARCA ===================== -->
+  <div class="intro" id="intro">
+    <div class="intro__half intro__half--top"></div>
+    <div class="intro__half intro__half--bottom"></div>
+    <div class="intro__stage" id="introStage">
+      <svg class="intro__svg" id="introSvg" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"></svg>
+      <div class="intro__brand" id="introBrand">
+        <img class="intro__logo" src="assets/img/brand/logo.png" width="150" height="150" alt="Logo do Ateliê Nilda Castanho">
+        <p class="intro__tagline">Cada peça, um cuidado especial.</p>
+      </div>
+    </div>
+    <button class="intro__skip" id="introSkip" type="button">Pular abertura</button>
+  </div>
+
+  <!-- ===================== CABEÇALHO ===================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header__inner">
+      <a class="brand" href="#inicio" aria-label="Ateliê Nilda Castanho — ir para o início">
+        <img class="brand__logo" src="assets/img/brand/logo.png" width="150" height="150" alt="">
+        <span class="brand__text">
+          <span class="brand__script">Nilda Castanho</span>
+          <span class="brand__sub">Ateliê de costura</span>
+        </span>
+      </a>
+
+      <nav class="nav" id="nav" aria-label="Principal">
+        <ul class="nav__list">
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#sobre">Sobre a Nilda</a></li>
+          <li><a href="#trabalhos">Trabalhos</a></li>
+          <li><a href="#galeria">Galeria</a></li>
+          <li><a href="#instagram">Instagram</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+        <div class="nav__extra">
+          <a class="btn btn--wa" data-whatsapp hidden target="_blank" rel="noopener noreferrer">
+            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z"/><path d="M9 8.6c0 3 3.4 6.4 6.4 6.4l1-1.5-2-1-1 .8c-1-.4-2-1.4-2.4-2.4l.8-1-1-2z"/></svg>
+            WhatsApp
+          </a>
+          <a class="btn btn--ghost" href="https://www.instagram.com/atelienildacastanho/" target="_blank" rel="noopener noreferrer">
+            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6"/></svg>
+            @atelienildacastanho
+          </a>
+          <p class="nav__place">Curitiba - PR</p>
+        </div>
+      </nav>
+
+      <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="nav" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="conteudo">
+
+    <!-- ===================== 01 · HERO ===================== -->
+    <section class="hero" id="inicio" aria-labelledby="hero-title">
+      <div class="container hero__grid">
+        <div class="hero__copy">
+          <p class="eyebrow" data-hero style="--i:0">Ateliê de costura · Curitiba, PR</p>
+          <h1 id="hero-title" data-hero style="--i:1">Costurando ideias, criando <em>peças únicas.</em></h1>
+          <p class="lead" data-hero style="--i:2">Do sob medida aos projetos especiais, cada trabalho carrega cuidado, criatividade e atenção aos detalhes.</p>
+          <div class="hero__cta" data-hero style="--i:3">
+            <a class="btn btn--primary" href="#trabalhos">Conhecer os trabalhos</a>
+            <a class="btn btn--wa" data-whatsapp hidden target="_blank" rel="noopener noreferrer">
+              <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z"/><path d="M9 8.6c0 3 3.4 6.4 6.4 6.4l1-1.5-2-1-1 .8c-1-.4-2-1.4-2.4-2.4l.8-1-1-2z"/></svg>
+              Falar no WhatsApp
+            </a>
+          </div>
+          <ul class="hero__facts" data-hero style="--i:4">
+            <li>Costuras sob medida</li>
+            <li>Costuras em geral</li>
+            <li>Feito à mão, com carinho</li>
+          </ul>
+        </div>
+
+        <div class="hero__art" aria-hidden="false">
+          <svg class="hero__thread draw" viewBox="0 0 560 640" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+            <path class="thread" d="M10 40 C 120 -10, 190 120, 150 230 S 40 330, 90 430 S 230 520, 250 600"/>
+          </svg>
+          <figure class="hero__a frame"><div class="media" data-reveal-img><img src="assets/img/site/hero-noiva.webp" width="1100" height="1467" alt="Noiva de costas com vestido de cetim e cauda longa, feito sob medida" fetchpriority="high"></div></figure>
+          <figure class="hero__b frame frame--round"><div class="media" data-reveal-img><img src="assets/img/site/hero-verde.webp" width="900" height="900" alt="Menina de olhos fechados com figurino de ballet em tule verde" ></div></figure>
+          <figure class="hero__c frame"><div class="media" data-reveal-img><img src="assets/img/site/hero-dourado.webp" width="540" height="960" alt="Tutu de ballet amarelo com corpete vinho e dourado, no cabide"></div></figure>
+          <div class="hero__tag" aria-hidden="true"><span>sob medida</span><svg viewBox="0 0 24 24"><path d="M12 20.5C5 15.5 3 11.8 3 8.9 3 6.4 4.9 4.5 7.3 4.5c1.8 0 3.5 1 4.7 2.8 1.2-1.8 2.9-2.8 4.7-2.8C19.1 4.5 21 6.4 21 8.9c0 2.9-2 6.6-9 11.6z"/></svg></div>
+        </div>
+      </div>
+      <a class="scroll-cue" href="#sobre" aria-label="Rolar para a próxima seção"><span>role</span><i></i></a>
+    </section>
+
+    <div class="stitch" data-stitch="wave" aria-hidden="true"></div>
+
+    <!-- ===================== 02 · SOBRE ===================== -->
+    <section class="about section" id="sobre" aria-labelledby="sobre-title">
+      <div class="container about__grid">
+        <div class="about__art">
+          <figure class="about__a frame"><div class="media" data-reveal-img><img src="assets/img/site/sobre-xadrez.webp" width="370" height="658" alt="Detalhe de vestido infantil xadrez vermelho com gola branca e botões, feito no ateliê" loading="lazy"></div></figure>
+          <figure class="about__b frame frame--round"><div class="media" data-reveal-img><img src="assets/img/site/sobre-manta.webp" width="540" height="960" alt="Manta e toalhinhas de bebê com nome bordado" loading="lazy"></div></figure>
+          <div class="patch" aria-hidden="true">
+            <span class="patch__script">Nilda</span>
+            <span class="patch__small">costuras sob medida / em geral</span>
+          </div>
+        </div>
+
+        <div class="about__copy" data-reveal>
+          <p class="eyebrow">Sobre a Nilda</p>
+          <h2 id="sobre-title">Prazer, sou a <em>Nilda!</em></h2>
+          <p>Sou apaixonada pelo universo da costura e por transformar ideias em peças especiais. Aqui no ateliê, cada trabalho é feito com atenção aos detalhes, dedicação e carinho.</p>
+          <p>Trabalho com costuras sob medida e diferentes tipos de projetos, sempre buscando transformar cada ideia em uma peça que tenha significado para quem encomenda.</p>
+          <p class="signature" aria-hidden="true">Nilda</p>
+          <ul class="pills">
+            <li>✂️ Costuras sob medida e em geral</li>
+            <li>Curitiba - PR</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 03 · UM ATELIÊ, MUITAS POSSIBILIDADES ===================== -->
+    <section class="works section" id="trabalhos" aria-labelledby="trabalhos-title">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <p class="eyebrow">Trabalhos</p>
+          <h2 id="trabalhos-title">Um ateliê, <em>muitas possibilidades</em></h2>
+          <p class="section-head__text">Cada ideia pede um caminho diferente. Veja o que nasce aqui — e toque em um trabalho para ver as fotos.</p>
+        </header>
+
+        <div class="cards">
+          <article class="card c1" data-reveal style="--i:0">
+            <a class="card__link" href="#galeria" data-filter="macacoes" aria-label="Macacões — ver fotos na galeria">
+              <div class="card__media"><img src="assets/img/gallery/macacao-azul-lg.webp" width="640" height="1136" alt="Macacão infantil felpudo azul com capuz" loading="lazy"></div>
+              <div class="card__body"><span class="card__num">01</span><h3>Macacões</h3><p>Peças confeccionadas com atenção ao caimento, acabamento e detalhes.</p><span class="card__more">Ver na galeria</span></div>
+            </a>
+          </article>
+
+          <article class="card c2" data-reveal style="--i:1">
+            <a class="card__link" href="#galeria" data-filter="infantis" aria-label="Vestidos infantis — ver fotos na galeria">
+              <div class="card__media"><img src="assets/img/gallery/infantil-minnie-lg.webp" width="540" height="960" alt="Menina com vestido infantil vermelho de bolinhas em festa temática" loading="lazy"></div>
+              <div class="card__body"><span class="card__num">02</span><h3>Vestidos infantis</h3><p>Peças delicadas e personalizadas para diferentes ocasiões.</p><span class="card__more">Ver na galeria</span></div>
+            </a>
+          </article>
+
+          <article class="card c3" data-reveal style="--i:2">
+            <a class="card__link" href="#galeria" data-filter="noivas" aria-label="Vestidos de noiva — ver fotos na galeria">
+              <div class="card__media"><img src="assets/img/gallery/noiva-cauda-sm.webp" width="640" height="853" alt="Vestido de noiva em cetim com cauda longa" loading="lazy"></div>
+              <div class="card__body"><span class="card__num">03</span><h3>Vestidos de noiva</h3><p>Projetos especiais para momentos únicos, com atenção aos detalhes e à personalização.</p><span class="card__more">Ver na galeria</span></div>
+            </a>
+          </article>
+
+          <article class="card c4" data-reveal style="--i:0">
+            <a class="card__link" href="#galeria" data-filter="vestidos" aria-label="Vestidos em geral — ver fotos na galeria">
+              <div class="card__media"><img src="assets/img/gallery/vestido-amarelo-sm.webp" width="640" height="640" alt="Vestido amarelo com mangas bufantes diante de arranjo de flores" loading="lazy"></div>
+              <div class="card__body"><span class="card__num">04</span><h3>Vestidos em geral</h3><p>Modelos variados, peças sob medida e projetos personalizados.</p><span class="card__more">Ver na galeria</span></div>
+            </a>
+          </article>
+
+          <article class="card c5 card--feature" data-reveal style="--i:1">
+            <a class="card__link" href="#galeria" data-filter="jardim" aria-label="Jardim Encantado — ver fotos na galeria">
+              <div class="card__media card__media--trio">
+                <img src="assets/img/gallery/jardim-rosa-lg.webp" width="640" height="1136" alt="Tutu de ballet rosa com corpete bordado" loading="lazy">
+                <img src="assets/img/gallery/jardim-verde-cabide-lg.webp" width="640" height="1138" alt="Tutu de ballet verde com bordados e pérolas" loading="lazy">
+                <img src="assets/img/gallery/jardim-dourado-lg.webp" width="540" height="960" alt="Tutu de ballet amarelo com corpete vinho e dourado" loading="lazy">
+              </div>
+              <div class="card__body"><span class="card__num">05</span><h3>Jardim Encantado</h3><p>Um universo de peças para bailarinas, incluindo tutus, figurinos e roupas delicadas.</p><span class="card__more">Ver na galeria</span></div>
+            </a>
+          </article>
+
+          <article class="card c6" data-reveal style="--i:0">
+            <a class="card__link" href="#galeria" data-filter="uniformes" aria-label="Uniformes — ver fotos na galeria">
+              <div class="card__media"><img src="assets/img/gallery/uniforme-vinho-sm.webp" width="640" height="640" alt="Uniforme social em tom vinho: colete e saia" loading="lazy"></div>
+              <div class="card__body"><span class="card__num">06</span><h3>Uniformes</h3><p>Confecção de diferentes tipos de uniformes, conforme a necessidade do projeto.</p><span class="card__more">Ver na galeria</span></div>
+            </a>
+          </article>
+
+          <article class="card c7" data-reveal style="--i:1">
+            <a class="card__link" href="#galeria" data-filter="sublimacao" aria-label="Sublimação em roupas — ver fotos na galeria">
+              <div class="card__media"><img src="assets/img/gallery/sublimacao-camiseta-sm.webp" width="640" height="1138" alt="Camiseta com estampa personalizada por sublimação" loading="lazy" style="object-position:50% 55%"></div>
+              <div class="card__body"><span class="card__num">07</span><h3>Sublimação em roupas</h3><p>Trabalhos de personalização de roupas por sublimação.</p><span class="card__more">Ver na galeria</span></div>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <div class="stitch" data-stitch="wave" aria-hidden="true"></div>
+
+    <!-- ===================== 04 · GALERIA ===================== -->
+    <section class="gallery-sec section" id="galeria" aria-labelledby="galeria-title">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <p class="eyebrow">Galeria</p>
+          <h2 id="galeria-title">Galeria de <em>trabalhos</em></h2>
+          <p class="section-head__text">Fotos reais de peças feitas no ateliê. Toque em uma imagem para ampliar.</p>
+        </header>
+
+        <div class="filters" id="filters" role="group" aria-label="Filtrar fotos por categoria">
+          <button type="button" class="chip" data-filter="todos" aria-pressed="true">Todos</button>
+          <button type="button" class="chip" data-filter="noivas" aria-pressed="false">Noivas</button>
+          <button type="button" class="chip" data-filter="vestidos" aria-pressed="false">Vestidos</button>
+          <button type="button" class="chip" data-filter="infantis" aria-pressed="false">Infantis</button>
+          <button type="button" class="chip" data-filter="jardim" aria-pressed="false">Jardim Encantado</button>
+          <button type="button" class="chip" data-filter="macacoes" aria-pressed="false">Macacões</button>
+          <button type="button" class="chip" data-filter="uniformes" aria-pressed="false">Uniformes</button>
+          <button type="button" class="chip" data-filter="sublimacao" aria-pressed="false">Sublimação</button>
+          <button type="button" class="chip" data-filter="outras" aria-pressed="false">Outras costuras</button>
+        </div>
+        <p class="gallery__count" id="galleryCount" aria-live="polite"></p>
+
+        <!--
+          PARA ADICIONAR UMA FOTO: copie um <li class="g-item"> abaixo, troque as imagens, o alt e o data-cat.
+          Categorias: noivas, vestidos, infantis, jardim, macacoes, uniformes, sublimacao, outras (pode combinar: "noivas infantis").
+        -->
+        <ul class="gallery" id="gallery">
+<!-- GALLERY:START -->
+      <li class="g-item" data-cat="noivas">
+        <button type="button" class="g-open" data-full="assets/img/gallery/noiva-cauda-lg.webp" data-caption="Vestido de noiva em cetim com cauda longa, visto de costas" aria-label="Ampliar foto: Vestido de noiva em cetim com cauda longa, visto de costas">
+          <img src="assets/img/gallery/noiva-cauda-sm.webp" width="640" height="853" alt="Vestido de noiva em cetim com cauda longa, visto de costas" loading="lazy" decoding="async">
+        </button>
+      </li>
+      <li class="g-item" data-cat="jardim">
+        <button type="button" class="g-open" data-full="assets/img/gallery/encanto-capa-lg.webp" data-caption="Arte da Coleção Encanto com selo e tutus de ballet" aria-label="Ampliar foto: Arte da Coleção Encanto com selo e tutus de ballet">
+          <img src="assets/img/gallery/encanto-capa-sm.webp" width="640" height="800" alt="Arte da Coleção Encanto com selo e tutus de ballet" loading="lazy" decoding="async">
+        </button>
+      </li>
+      <li class="g-item" data-cat="infantis">
+        <button type="button" class="g-open" data-full="assets/img/gallery/infantil-minnie-lg.webp" data-caption="Vestido infantil vermelho de bolinhas com corpete preto" aria-label="Ampliar foto: Vestido infantil vermelho de bolinhas com corpete preto">
+          <img src="assets/img/gallery/infantil-minnie-lg.webp" width="540" height="960" alt="Vestido infantil vermelho de bolinhas com corpete preto" loading="lazy" decoding="async">
+        </button>
+      </li>
+      <li class="g-item" data-cat="vestidos">
+        <button type="button" class="g-open" data-full="assets/img/gallery/vestido-festa-preto-lg.webp" data-caption="Vestido de festa longo preto em cetim, com fenda" aria-label="Ampliar foto: Vestido de festa longo preto em cetim, com fenda">
+          <img src="assets/img/gallery/vestido-festa-preto-sm.webp" width="640" height="1138" alt="Vestido de festa longo preto em cetim, com fenda" loading="lazy" decoding="async">
+        </button>
+      </li>
+      <li class="g-item" data-cat="jardim">
+        <button type="button" class="g-open" data-full="assets/img/gallery/jardim-rosa-lg.webp" data-caption="Tutu de ballet rosa com corpete bordado" aria-label="Ampliar foto: Tutu de ballet rosa com corpete bordado">
+          <img src="assets/img/gallery/jardim-rosa-lg.webp" width="640" height="1136" alt="Tutu de ballet rosa com corpete bordado" loading="lazy" decoding="async">
+        </button>
+      </li>
+      <li class="g-item" data-cat="uniformes">
+        <button type="button" class="g-open" data-full="assets/img/gallery/uniforme-azul-2-lg.webp" data-caption="Uniforme azul-marinho com lenço vermelho, diante de balões coloridos" aria-label="Ampliar foto: Uniforme azul-marinho com lenço vermelho, diante de balões coloridos">
+          <img src="assets/img/gallery/uniforme-azul-2-sm.webp" width="640" height="853" alt="Uniforme azul-marinho com lenço vermelho, diante de balões coloridos" loading="lazy" decoding="async">
+        </button>
+      </li>
+      <li class="g-item" data-cat="sublimacao">
+        <button type="button" class="g-open" data-full="assets/img/gallery/sublimacao-camiseta-lg.webp" data-caption="Camiseta com estampa personalizada por sublimação" aria-label="Ampliar foto: Camiseta com estampa personalizada por sublimação">
+          <img src="assets/img/gallery/sublimacao-camiseta-sm.webp" width="640" height="1138" alt="Camiseta com estampa personalizada por sublimação" loading="lazy" decoding="async">
+        </button>
+      </li>
+      <li class="g-item" data-cat="infantis">
+        <button type="button" class="g-open" data-full="assets/img/gallery/infantil-daminha-lg.webp" data-caption="Vestido branco de daminha com saia de tule e capa" aria-label="Ampliar foto: Vestido branco de daminha com saia de tule e capa">
+          <img src="assets/img/gallery/infantil-daminha-sm.webp" width="640" height="853" alt="Vestido branco de daminha com saia de tule e capa" loading="lazy" decoding="async">
+        </button>
+      </li>
+      <li class="g-item" data-cat="vestidos">
+        <button type="button" class="g-open" data-full="assets/img/gallery/vestido-amarelo-lg.webp" data-caption="Vestido amarelo com mangas bufantes diante de arranjo de flores" aria-label="Ampliar foto: Vestido amarelo com mangas bufantes diante de arranjo de flores">
+          <img src="assets/img/gallery/vestido-amarelo-sm.webp" width="640" height="640" alt="Vestido amarelo com mangas bufantes diante de arranjo de flores" loading="lazy" decoding="async">
+        </button>
+      </li>
+      <li class="g-item" data-cat="macacoes">
+        <button type="button" class="g-open" data-full="assets/img/gallery/macacao-azul-lg.webp" data-caption="Macacão infantil felpudo azul com capuz" aria-label="Ampliar foto: Macacão infantil felpudo azul com capuz">
+          <img src="assets/img/gallery/macacao-azul-lg.webp" width="640" height="1136" alt="Macacão infantil felpudo azul com capuz" loading="lazy" decoding="async">
+        </button>
+      </li>
+      <li class="g-item" data-cat="jardim">
+        <button type="button" class="g-open" data-full="assets/img/gallery/jardim-verde-cabide-lg.webp" data-caption="Tutu de ballet verde com bordados e pérolas, no cabide" aria-label="Ampliar foto: Tutu de ballet verde com bordados e pérolas, no cabide">
+          <img src="assets/img/gallery/jardim-verde-cabide-lg.webp" width="640" height="1138" alt="Tutu de ballet verde com bordados e pérolas, no cabide" loading="lazy" decoding="async">
+        </button>
+      </li>
+      <li class="g-item" data-cat="infantis">
+        <button type="button" class="g-open" data-full="assets/img/gallery/infantil-xadrez-lg.webp" data-caption="Vestido infantil xadrez vermelho com gola branca" aria-label="Ampliar foto: Vestido infantil xadrez vermelho com gola branca">
+          <img src="assets/img/gallery/infantil-xadrez-lg.webp" width="370" height="658" alt="Vestido infantil xadrez vermelho com gola branca" loading="lazy" decoding="async">
+        </button>
+      </li>
+      <li class="g-item" data-cat="noivas">
+        <button type="button" class="g-open" data-full="assets/img/gallery/noiva-veu-lg.webp" data-caption="Noiva com vestido de ombros caídos e véu de tule, segurando buquê" aria-label="Ampliar foto: Noiva com vestido de ombros caídos e véu de tule, segurando buquê">
+          <img src="assets/img/gallery/noiva-veu-sm.webp" width="640" height="640" alt="Noiva com vestido de ombros caídos e véu de tule, segurando buquê" loading="lazy" decoding="async">
+        </button>
+      </li>
+      <li class="g-item" data-cat="outras">
+        <button type="button" class="g-open" data-full="assets/img/gallery/outras-manta-lg.webp" data-caption="Manta e toalhinhas de bebê com nome bordado" aria-label="Ampliar foto: Manta e toalhinhas de bebê com nome bordado">
+          <img src="assets/img/gallery/outras-manta-lg.webp" width="540" height="960" alt="Manta e toalhinhas de bebê com nome bordado" loading="lazy" decoding="async">
+        </button>
+      </li>
+      <li class="g-item" data-cat="jardim">
+        <button type="button" class="g-open" data-full="assets/img/gallery/encanto-verde-lg.webp" data-caption="Tutu verde-claro bordado da Coleção Encanto" aria-label="Ampliar foto: Tutu verde-claro bordado da Coleção Encanto">
+          <img src="assets/img/gallery/encanto-verde-sm.webp" width="640" height="800" alt="Tutu verde-claro bordado da Coleção Encanto" loading="lazy" decoding="async">
+        </button>
+      </li>
+      <li class="g-item" data-cat="vestidos">
+        <button type="button" class="g-open" data-full="assets/img/gallery/vestido-terracota-lg.webp" data-caption="Vestido de saia ampla em tom terracota" aria-label="Ampliar foto: Vestido de saia ampla em tom terracota">
+          <img src="assets/img/gallery/vestido-terracota-lg.webp" width="640" height="843" alt="Vestido de saia ampla em tom terracota" loading="lazy" decoding="async">
+        </button>
+      </li>
+      <li class="g-item" data-cat="infantis">
+        <button type="button" class="g-open" data-full="assets/img/gallery/infantil-borboletas-lg.webp" data-caption="Vestido infantil branco com aplicações de borboletas" aria-label="Ampliar foto: Vestido infantil branco com aplicações de borboletas">
+          <img src="assets/img/gallery/infantil-borboletas-lg.webp" width="576" height="576" alt="Vestido infantil branco com aplicações de borboletas" loading="lazy" decoding="async">
+        </button>
+      </li>
+      <li class="g-item" data-cat="jardim">
+        <button type="button" class="g-open" data-full="assets/img/gallery/jardim-espetaculo-lg.webp" data-caption="Grupo de bailarinas em apresentação no palco" aria-label="Ampliar foto: Grupo de bailarinas em apresentação no palco">
+          <img src="assets/img/gallery/jardim-espetaculo-sm.webp" width="640" height="360" alt="Grupo de bailarinas em apresentação no palco" loading="lazy" decoding="async">
+        </button>
+      </li>
+      <li class="g-item" data-cat="uniformes">
+        <button type="button" class="g-open" data-full="assets/img/gallery/uniforme-vinho-lg.webp" data-caption="Uniforme social em tom vinho: colete e saia" aria-label="Ampliar foto: Uniforme social em tom vinho: colete e saia">
+          <img src="assets/img/gallery/uniforme-vinho-sm.webp" width="640" height="640" alt="Uniforme social em tom vinho: colete e saia" loading="lazy" decoding="async">
+        </button>
+      </li>
+      <li class="g-item" data-cat="jardim">
+        <button type="button" class="g-open" data-full="assets/img/gallery/encanto-rosa-lg.webp" data-caption="Tutu rosa com paetês da Coleção Encanto" aria-label="Ampliar foto: Tutu rosa com paetês da Coleção Encanto">
+          <img src="assets/img/gallery/encanto-rosa-sm.webp" width="640" height="800" alt="Tutu rosa com paetês da Coleção Encanto" loading="lazy" decoding="async">
+        </button>
+      </li>
+      <li class="g-item" data-cat="infantis">
+        <button type="button" class="g-open" data-full="assets/img/gallery/infantil-bebe-lg.webp" data-caption="Vestido de bebê com saia de tule amarela e laço vermelho" aria-label="Ampliar foto: Vestido de bebê com saia de tule amarela e laço vermelho">
+          <img src="assets/img/gallery/infantil-bebe-lg.webp" width="540" height="960" alt="Vestido de bebê com saia de tule amarela e laço vermelho" loading="lazy" decoding="async">
+        </button>
+      </li>
+      <li class="g-item" data-cat="sublimacao">
+        <button type="button" class="g-open" data-full="assets/img/gallery/sublimacao-almofada-lg.webp" data-caption="Almofada personalizada com fotos e mensagem por sublimação" aria-label="Ampliar foto: Almofada personalizada com fotos e mensagem por sublimação">
+          <img src="assets/img/gallery/sublimacao-almofada-lg.webp" width="370" height="658" alt="Almofada personalizada com fotos e mensagem por sublimação" loading="lazy" decoding="async">
+        </button>
+      </li>
+      <li class="g-item" data-cat="vestidos">
+        <button type="button" class="g-open" data-full="assets/img/gallery/vestido-azul-lg.webp" data-caption="Vestido azul-marinho com mangas em tule" aria-label="Ampliar foto: Vestido azul-marinho com mangas em tule">
+          <img src="assets/img/gallery/vestido-azul-lg.webp" width="640" height="855" alt="Vestido azul-marinho com mangas em tule" loading="lazy" decoding="async">
+        </button>
+      </li>
+      <li class="g-item" data-cat="jardim">
+        <button type="button" class="g-open" data-full="assets/img/gallery/jardim-dourado-lg.webp" data-caption="Tutu de ballet amarelo com corpete vinho e dourado" aria-label="Ampliar foto: Tutu de ballet amarelo com corpete vinho e dourado">
+          <img src="assets/img/gallery/jardim-dourado-lg.webp" width="540" height="960" alt="Tutu de ballet amarelo com corpete vinho e dourado" loading="lazy" decoding="async">
+        </button>
+      </li>
+      <li class="g-item" data-cat="macacoes">
+        <button type="button" class="g-open" data-full="assets/img/gallery/macacao-aranha-lg.webp" data-caption="Macacão infantil estampado com capuz" aria-label="Ampliar foto: Macacão infantil estampado com capuz">
+          <img src="assets/img/gallery/macacao-aranha-lg.webp" width="640" height="1136" alt="Macacão infantil estampado com capuz" loading="lazy" decoding="async">
+        </button>
+      </li>
+      <li class="g-item" data-cat="infantis">
+        <button type="button" class="g-open" data-full="assets/img/gallery/infantil-verde-agua-lg.webp" data-caption="Vestido infantil verde-água com aplicações em relevo" aria-label="Ampliar foto: Vestido infantil verde-água com aplicações em relevo">
+          <img src="assets/img/gallery/infantil-verde-agua-sm.webp" width="640" height="640" alt="Vestido infantil verde-água com aplicações em relevo" loading="lazy" decoding="async">
+        </button>
+      </li>
+      <li class="g-item" data-cat="jardim">
+        <button type="button" class="g-open" data-full="assets/img/gallery/encanto-azul-lg.webp" data-caption="Tutu azul e prateado da Coleção Encanto" aria-label="Ampliar foto: Tutu azul e prateado da Coleção Encanto">
+          <img src="assets/img/gallery/encanto-azul-sm.webp" width="640" height="800" alt="Tutu azul e prateado da Coleção Encanto" loading="lazy" decoding="async">
+        </button>
+      </li>
+      <li class="g-item" data-cat="outras">
+        <button type="button" class="g-open" data-full="assets/img/gallery/outras-casaco-lg.webp" data-caption="Casaco teddy rosa com forro felpudo" aria-label="Ampliar foto: Casaco teddy rosa com forro felpudo">
+          <img src="assets/img/gallery/outras-casaco-lg.webp" width="640" height="1136" alt="Casaco teddy rosa com forro felpudo" loading="lazy" decoding="async">
+        </button>
+      </li>
+      <li class="g-item" data-cat="jardim">
+        <button type="button" class="g-open" data-full="assets/img/gallery/jardim-palco-lg.webp" data-caption="Bailarina com tutu de tule verde em cena" aria-label="Ampliar foto: Bailarina com tutu de tule verde em cena">
+          <img src="assets/img/gallery/jardim-palco-lg.webp" width="540" height="960" alt="Bailarina com tutu de tule verde em cena" loading="lazy" decoding="async">
+        </button>
+      </li>
+      <li class="g-item" data-cat="vestidos">
+        <button type="button" class="g-open" data-full="assets/img/gallery/vestido-amarelo-corredor-lg.webp" data-caption="Vestido amarelo longo em cerimônia ao ar livre" aria-label="Ampliar foto: Vestido amarelo longo em cerimônia ao ar livre">
+          <img src="assets/img/gallery/vestido-amarelo-corredor-lg.webp" width="640" height="1136" alt="Vestido amarelo longo em cerimônia ao ar livre" loading="lazy" decoding="async">
+        </button>
+      </li>
+      <li class="g-item" data-cat="infantis">
+        <button type="button" class="g-open" data-full="assets/img/gallery/infantil-renda-lg.webp" data-caption="Vestido infantil com renda e aplicações delicadas" aria-label="Ampliar foto: Vestido infantil com renda e aplicações delicadas">
+          <img src="assets/img/gallery/infantil-renda-lg.webp" width="540" height="725" alt="Vestido infantil com renda e aplicações delicadas" loading="lazy" decoding="async">
+        </button>
+      </li>
+      <li class="g-item" data-cat="jardim">
+        <button type="button" class="g-open" data-full="assets/img/gallery/encanto-dourado-lg.webp" data-caption="Tutu amarelo com corpete vinho da Coleção Encanto" aria-label="Ampliar foto: Tutu amarelo com corpete vinho da Coleção Encanto">
+          <img src="assets/img/gallery/encanto-dourado-sm.webp" width="640" height="800" alt="Tutu amarelo com corpete vinho da Coleção Encanto" loading="lazy" decoding="async">
+        </button>
+      </li>
+      <li class="g-item" data-cat="uniformes">
+        <button type="button" class="g-open" data-full="assets/img/gallery/uniforme-azul-lg.webp" data-caption="Uniforme azul-marinho com lenço vermelho e boina" aria-label="Ampliar foto: Uniforme azul-marinho com lenço vermelho e boina">
+          <img src="assets/img/gallery/uniforme-azul-lg.webp" width="610" height="1084" alt="Uniforme azul-marinho com lenço vermelho e boina" loading="lazy" decoding="async">
+        </button>
+      </li>
+      <li class="g-item" data-cat="jardim">
+        <button type="button" class="g-open" data-full="assets/img/gallery/jardim-azul-prata-lg.webp" data-caption="Figurino de ballet azul e prata no cabide" aria-label="Ampliar foto: Figurino de ballet azul e prata no cabide">
+          <img src="assets/img/gallery/jardim-azul-prata-lg.webp" width="540" height="960" alt="Figurino de ballet azul e prata no cabide" loading="lazy" decoding="async">
+        </button>
+      </li>
+      <li class="g-item" data-cat="infantis">
+        <button type="button" class="g-open" data-full="assets/img/gallery/infantil-cetim-azul-lg.webp" data-caption="Vestido infantil de cetim azul com estrelas e laço vermelho" aria-label="Ampliar foto: Vestido infantil de cetim azul com estrelas e laço vermelho">
+          <img src="assets/img/gallery/infantil-cetim-azul-lg.webp" width="370" height="658" alt="Vestido infantil de cetim azul com estrelas e laço vermelho" loading="lazy" decoding="async">
+        </button>
+      </li>
+      <li class="g-item" data-cat="jardim">
+        <button type="button" class="g-open" data-full="assets/img/gallery/jardim-verde-ninho-lg.webp" data-caption="Criança com ballet em tule verde-musgo" aria-label="Ampliar foto: Criança com ballet em tule verde-musgo">
+          <img src="assets/img/gallery/jardim-verde-ninho-sm.webp" width="640" height="640" alt="Criança com ballet em tule verde-musgo" loading="lazy" decoding="async">
+        </button>
+      </li>
+      <li class="g-item" data-cat="jardim">
+        <button type="button" class="g-open" data-full="assets/img/gallery/encanto-musgo-lg.webp" data-caption="Tutu verde-musgo da Coleção Encanto" aria-label="Ampliar foto: Tutu verde-musgo da Coleção Encanto">
+          <img src="assets/img/gallery/encanto-musgo-sm.webp" width="640" height="800" alt="Tutu verde-musgo da Coleção Encanto" loading="lazy" decoding="async">
+        </button>
+      </li>
+<!-- GALLERY:END -->
+        </ul>
+        <p class="gallery__empty" id="galleryEmpty" hidden>Em breve, novas fotos desta categoria.</p>
+      </div>
+    </section>
+
+    <!-- ===================== 05 · FEITO COM CARINHO ===================== -->
+    <section class="detail section" id="detalhes" aria-labelledby="detalhes-title">
+      <div class="container detail__grid">
+        <div class="detail__art">
+          <svg class="detail__thread draw" viewBox="0 0 520 600" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+            <path class="thread" d="M-10 80 C 140 10, 300 60, 330 200 S 420 380, 300 470 S 60 520, 140 600"/>
+          </svg>
+          <figure class="detail__a frame frame--arch"><div class="media" data-reveal-img><img src="assets/img/site/detalhe-bordado.webp" width="1100" height="1100" alt="Detalhe de corpete de tutu verde-claro com bordados em flores, pérolas e flor de cetim na cintura" loading="lazy"></div></figure>
+          <figure class="detail__b frame frame--round"><div class="media" data-reveal-img><img src="assets/img/site/detalhe-paete.webp" width="800" height="800" alt="Detalhe de corpete rosa com paetês e amarração dourada" loading="lazy"></div></figure>
+        </div>
+
+        <div class="detail__copy" data-reveal>
+          <p class="eyebrow">Feito com carinho, pensado nos detalhes</p>
+          <h2 id="detalhes-title">Cada detalhe faz parte <em>da criação.</em></h2>
+          <p>Uma ideia pode se transformar em tantas possibilidades. No Ateliê Nilda Castanho, cada projeto recebe atenção especial, desde a escolha dos detalhes até o acabamento final.</p>
+
+          <ol class="steps" aria-label="Do começo ao fim de cada peça">
+            <li><span class="steps__dot"></span><span class="steps__t">A ideia</span></li>
+            <li><span class="steps__dot"></span><span class="steps__t">Os detalhes</span></li>
+            <li><span class="steps__dot"></span><span class="steps__t">O acabamento final</span></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 06 · INSTAGRAM ===================== -->
+    <section class="insta section" id="instagram" aria-labelledby="insta-title">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <p class="eyebrow">@atelienildacastanho</p>
+          <h2 id="insta-title">Um pouquinho <em>do meu trabalho!</em></h2>
+          <p class="section-head__text">Aqui compartilho minhas criações, projetos especiais e um pouco do universo da costura.</p>
+        </header>
+
+        <ul class="insta__grid">
+          <li data-reveal style="--i:0"><a href="https://www.instagram.com/atelienildacastanho/" target="_blank" rel="noopener noreferrer" aria-label="Abrir o Instagram @atelienildacastanho (nova aba)"><img src="assets/img/gallery/infantil-cetim-azul-lg.webp" width="370" height="658" alt="Vestido infantil de cetim azul com estrelas e laço vermelho" loading="lazy"></a></li>
+          <li data-reveal style="--i:1"><a href="https://www.instagram.com/atelienildacastanho/" target="_blank" rel="noopener noreferrer" aria-label="Abrir o Instagram @atelienildacastanho (nova aba)"><img src="assets/img/gallery/jardim-palco-lg.webp" width="540" height="960" alt="Bailarina com tutu de tule verde em cena" loading="lazy"></a></li>
+          <li data-reveal style="--i:2"><a href="https://www.instagram.com/atelienildacastanho/" target="_blank" rel="noopener noreferrer" aria-label="Abrir o Instagram @atelienildacastanho (nova aba)"><img src="assets/img/gallery/outras-casaco-lg.webp" width="640" height="1136" alt="Casaco teddy rosa com forro felpudo" loading="lazy"></a></li>
+          <li data-reveal style="--i:3"><a href="https://www.instagram.com/atelienildacastanho/" target="_blank" rel="noopener noreferrer" aria-label="Abrir o Instagram @atelienildacastanho (nova aba)"><img src="assets/img/gallery/infantil-verde-agua-sm.webp" width="640" height="640" alt="Vestido infantil verde-água com aplicações em relevo" loading="lazy"></a></li>
+          <li data-reveal style="--i:4"><a href="https://www.instagram.com/atelienildacastanho/" target="_blank" rel="noopener noreferrer" aria-label="Abrir o Instagram @atelienildacastanho (nova aba)"><img src="assets/img/gallery/outras-manta-lg.webp" width="540" height="960" alt="Manta e toalhinhas de bebê com nome bordado" loading="lazy"></a></li>
+          <li data-reveal style="--i:5"><a href="https://www.instagram.com/atelienildacastanho/" target="_blank" rel="noopener noreferrer" aria-label="Abrir o Instagram @atelienildacastanho (nova aba)"><img src="assets/img/gallery/infantil-borboletas-lg.webp" width="576" height="576" alt="Vestido infantil branco com aplicações de borboletas" loading="lazy"></a></li>
+        </ul>
+
+        <p class="insta__cta" data-reveal>
+          <a class="btn btn--primary" href="https://www.instagram.com/atelienildacastanho/" target="_blank" rel="noopener noreferrer">
+            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6"/></svg>
+            ACOMPANHE NO INSTAGRAM
+          </a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ===================== 07 · CONTATO ===================== -->
+    <section class="contact section" id="contato" aria-labelledby="contato-title">
+      <div class="container contact__inner" data-reveal>
+        <svg class="contact__heart draw" viewBox="0 0 120 108" aria-hidden="true" focusable="false"><path class="thread" d="M60 100 C 52 94, 6 66, 6 34 C 6 16, 20 6, 34 6 C 46 6, 55 12, 60 22 C 65 12, 74 6, 86 6 C 100 6, 114 16, 114 34 C 114 66, 68 94, 60 100 Z"/></svg>
+        <p class="eyebrow">Contato e encomendas</p>
+        <h2 id="contato-title">Tem uma ideia? <em>Vamos transformar em realidade!</em></h2>
+        <p class="contact__text">Se você procura uma peça sob medida ou tem um projeto especial em mente, entre em contato com a Nilda e converse sobre sua ideia.</p>
+        <div class="contact__btns">
+          <a class="btn btn--wa btn--lg" data-whatsapp hidden target="_blank" rel="noopener noreferrer">
+            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z"/><path d="M9 8.6c0 3 3.4 6.4 6.4 6.4l1-1.5-2-1-1 .8c-1-.4-2-1.4-2.4-2.4l.8-1-1-2z"/></svg>
+            Chamar no WhatsApp
+          </a>
+          <a class="btn btn--primary btn--lg" href="https://www.instagram.com/atelienildacastanho/" target="_blank" rel="noopener noreferrer">
+            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6"/></svg>
+            Chamar no Instagram
+          </a>
+        </div>
+        <p class="contact__place">
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></svg>
+          Curitiba - PR
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== 08 · FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <a class="tag-logo" href="#inicio" aria-label="Ateliê Nilda Castanho — voltar ao início">
+          <img src="assets/img/brand/logo.png" width="150" height="150" alt="Logo do Ateliê Nilda Castanho">
+        </a>
+        <div>
+          <p class="footer__name">Ateliê Nilda Castanho</p>
+          <p class="footer__place">Curitiba - PR</p>
+          <p class="footer__links">
+            <a href="https://www.instagram.com/atelienildacastanho/" target="_blank" rel="noopener noreferrer">Instagram @atelienildacastanho</a>
+            <a data-whatsapp hidden target="_blank" rel="noopener noreferrer">WhatsApp</a>
+          </p>
+        </div>
+      </div>
+      <nav class="footer__nav" aria-label="Rodapé">
+        <a href="#inicio">Início</a>
+        <a href="#sobre">Sobre a Nilda</a>
+        <a href="#trabalhos">Trabalhos</a>
+        <a href="#galeria">Galeria</a>
+        <a href="#instagram">Instagram</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </div>
+    <div class="container footer__bottom">
+      <p>© <span id="year">2026</span> Ateliê Nilda Castanho. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Voltar ao topo -->
+  <button class="to-top" id="toTop" type="button" aria-label="Voltar ao topo">
+    <svg viewBox="0 0 48 48" aria-hidden="true"><circle class="to-top__track" cx="24" cy="24" r="22"/><circle class="to-top__ring" id="toTopRing" cx="24" cy="24" r="22"/><path d="M17 27l7-7 7 7"/></svg>
+  </button>
+
+  <!-- Visualização ampliada -->
+  <dialog class="lightbox" id="lightbox" aria-label="Foto ampliada">
+    <button class="lb__btn lb__close" type="button" id="lbClose" aria-label="Fechar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <button class="lb__btn lb__prev" type="button" id="lbPrev" aria-label="Foto anterior"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+    <button class="lb__btn lb__next" type="button" id="lbNext" aria-label="Próxima foto"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+    <figure class="lb__fig">
+      <img id="lbImg" alt="">
+      <figcaption id="lbCap"></figcaption>
+    </figure>
+    <p class="lb__count" id="lbCount" aria-hidden="true"></p>
+  </dialog>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>
